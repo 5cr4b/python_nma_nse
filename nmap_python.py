@@ -21,7 +21,7 @@ def regex_version_id(ver_apa):
 
 		# regex the reponse to get output 
 		# output will look like:  [/vulnerability-list/vendor_id-45/product_id-66/version_id-323322/Apache-Http-Server-2.4.50.html]
-		get_ver_id = re.findall(r'href="/vulnerability-list/vendor_id-45/product_id-66/version_id-....../Apache-Http-Server-{}.html"'.format(str(ver_apa)),str(req_get_response.content))
+		get_ver_id = re.findall(r'href="/version/....../Apache-Http-Server-{}.html"'.format(str(ver_apa)),str(req_get_response.content))
 		
 		return get_ver_id	
 

@@ -17,13 +17,14 @@ def regex_version_id(ver_apa):
 	for n in range(1,12):
 	#send request from page 1 to page 2 to get reponse
 		
-		req_get_response = requests.get("https://www.cvedetails.com/version-list/45/66/{}/Apache-Http-Server.html?order=1".format(n))
-
+		headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+	
+		req_get_response = requests.get("https://www.cvedetails.com/version-list/45/66/{}/Apache-Http-Server.html?order=1".format(n),headers=headers)
 		# regex the reponse to get output 
 		# output will look like:  [/vulnerability-list/vendor_id-45/product_id-66/version_id-323322/Apache-Http-Server-2.4.50.html]
 		get_ver_id = re.findall(r'href="/version/....../Apache-Http-Server-{}.html"'.format(str(ver_apa)),str(req_get_response.content))
 		
-		return get_ver_id	
+		return req_get_response.content.decode()
 
 
 def nmap_scan_port():

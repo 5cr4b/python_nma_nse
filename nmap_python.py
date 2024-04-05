@@ -24,7 +24,7 @@ def regex_version_id(ver_apa):
 		# output will look like:  [/vulnerability-list/vendor_id-45/product_id-66/version_id-323322/Apache-Http-Server-2.4.50.html]
 		get_ver_id = re.findall(r'href="/version/....../Apache-Http-Server-{}.html"'.format(str(ver_apa)),str(req_get_response.content))
 		
-		return req_get_response.content.decode()
+		return get_ver_id
 
 
 def nmap_scan_port():

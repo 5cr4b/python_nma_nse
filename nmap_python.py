@@ -60,8 +60,8 @@ def nmap_scan_vul():
 		for i in lst_ver_id:
 			# filter the output and the version_id will look like 622345
 			
-			filtered = re.search(r"\bversion_id.*/",i).group()				
-			ver_id =  filtered[11::]
+			filtered = re.search(r"\bversion.*/",i).group()				
+			ver_id =  filtered[8::]
 				
 			sc = nmap.PortScanner()
 			# use nmap-python to scan vulnerability with nmap script and pass the version_id to nmap script
